@@ -412,8 +412,8 @@ ul.comment-list img {
 }
 
 .content-form form input[type="submit"] {
-	color: #fff;
-	background: #00aeff;
+	color: #305049;
+	background: #EFD1A9;
 	padding: 0.4em 1.5em;
 	text-decoration: none;
 	font-size: 0.9em;
@@ -421,7 +421,7 @@ ul.comment-list img {
 	margin-top: 1em;
 	border: none;
 	outline: none;
-	border: 1px solid #00aeff;
+	border: 1px solid #efd1a9;
 	transition: 0.5s all ease;
 	-webkit-transition: 0.5s all ease;
 	-moz-transition: 0.5s all ease;
@@ -430,12 +430,12 @@ ul.comment-list img {
 }
 
 	.content-form form input[type="submit"]:hover {
-		background: transparent;
-		color: #00aeff;
+		background: #3E5D57;
+		color:#fff;
 	}
 
 .content-form h3 {
-	color: #00aeff;
+	color: rgb(255, 120, 0);
 	margin-bottom: 1em;
 	text-decoration: none;
 	display: block;
