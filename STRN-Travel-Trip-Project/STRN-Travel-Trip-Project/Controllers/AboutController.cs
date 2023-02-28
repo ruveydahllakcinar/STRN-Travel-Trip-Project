@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using STRN_Travel_Trip_Project.Models.Siniflar;
 
-namespace STRN_Travel_Trip_Project.Controllers  /*Db den verileri çekmek için*/
+namespace STRN_Travel_Trip_Project.Controllers 
 {
     public class AboutController : Controller
     {

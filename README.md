@@ -1,8 +1,8 @@
 # Saturn Holiday & Travel Site
 
-Bu proje Asp.Net Mvc5 ile geliştirilmiştir. Gitmek istediğiniz şehirlerle ilgili blog yazılarını okuyabilir, yorum yapabilirsiniz. Ayrıca admine özel bir panel de bulunmaktadır. Buradan blogları silebilir, güncelleyebilir, hatta yeni blog ekleyebileceği bir alan bulunmaktadır. Buna ek olrak yorumları da silme yetkisi bulunmaktadır. 
+This project was developed with Asp.Net Mvc5. You can read and comment on blog posts about the cities you want to visit. There is also an admin-specific panel. There is an area where you can delete blogs, update them, or even add new blogs. In addition, it has the right to delete comments.
 
-Bu projeyi Asp.net MVC5'i daha iyi pekiştirmek ve öğrenmek için geliştirdim. 
+I developed this project to better consolidate and learn Asp.net MVC5.
 
 ## Frameworks Used
 * .NET Framework (4.6.1)
@@ -22,45 +22,103 @@ Check MySQL as datastore. I created my classes in Model. I submitted this to the
 
 ## What is included in the project?
 
-* İlk olarak anasayfamda değişiklikler olacağı zaman kirli bir görüntü oluşmaması için bazı alanlarda partial view kullandım.
+* First of all, I used partial view in some areas to avoid a dirty image when there will be changes on my homepage.
 
-* Gidilen son yerlerin görselleri için bir slider kullandım böylelikle her blogda kullanılan görseller sırayla değişmektedir
+* I used a slider for the images of the last places visited so that the images used in each blog change in order
 
 ![header](STRN-Travel-Trip-Project/readmeimages/header.gif)
 
 ---
 
-* Ana sayfamda girilen son 3 blog tarihine göre çekilmiştir. Böylelikle her yeni blog eklendikçe ilk sıraya gelmektedir.
+* Taken according to the last 3 blog dates entered on my home page. Thus, as each new blog is added, it comes to the first place.
 
 ![blogpartial](STRN-Travel-Trip-Project/readmeimages/blog.png)
 
 ---
 
-* Popüler olan en çok yorum yapılan bloglarımı da bu şekilde sıraladım.
+* This is how I listed my most popular and most commented blogs.
 
-![populer blog](STRN-Travel-Trip-Project/readmeimages/popularblog.PNG)
-
----
-
-* Burada da blogları en iyi yerler olarak sıraladım.
-
-![populer blog](STRN-Travel-Trip-Project/readmeimages/bestblog.PNG)
+![popular blog](STRN-Travel-Trip-Project/readmeimages/popularblog.PNG)
 
 ---
 
-* Bloglara özel sayfa yaptım. Burada da tüm blogları listeleyip read more butonuna tıklayıp daha detaylı içeriği ulaşmalarını sağladım.
+* Here, too, I have ranked blogs as the best places.
+
+![popular blog](STRN-Travel-Trip-Project/readmeimages/bestblog.PNG)
+
+---
+
+* I made a special page for blogs. Here, I listed all the blogs and clicked the read more button, allowing them to reach more detailed content.
 
 ![header](STRN-Travel-Trip-Project/readmeimages/blog-detail.gif)
 
-* Yorum alanı da aşağıdaki gibidir.
+* The comment field is also as follows.
 
 
 <img src="STRN-Travel-Trip-Project/readmeimages/comments.PNG"  width="500" height="500">
 
-* Admin panelimde blogları ekleme,silme, güncelleme ve detaylarını görme alanları bulunmaktadır. 
+* In my admin panel, there are areas to add, delete, update and see the details of blogs.
 
 ![header](STRN-Travel-Trip-Project/readmeimages/admin-blog.gif)
 
-* Yorumları da görebileceğim, denetleyebileceğim, kötü yorum geldiği zaman silebileceğim bir sayfa oluşturdum.
+* I have created a page where I can see the comments, control them and delete them when bad comments are received.
 
-<img src="STRN-Travel-Trip-Project/readmeimages/admin-comment.PNG"  width="1100" height="500">
+<img src="STRN-Travel-Trip-Project/readmeimages/admin-comment.PNG" width="1100" height="500">
+
+
+### Admin Controller
+
+* I created this controller to create, edit or delete comments and blogs.
+
+![header](STRN-Travel-Trip-Project/readmeimages/blog-controller.PNG) ![header](STRN-Travel-Trip-Project/readmeimages/comment-controller.PNG)
+
+### Blog Controller
+
+* I created a controller to list all my blogs and see their details. I also wrote the codes for the comment area in this controller.
+
+![header](STRN-Travel-Trip-Project/readmeimages/blog-list.PNG)
+
+* I used a lot of partial views on the homepage. Thanks to these partials, I got the ease of part and manage.
+
+``` 
+ public PartialViewResult Partial1()
+        {
+
+            var degerler = c.Blogs.OrderByDescending(x => x.Id).Take(2).ToList();
+            return PartialView(degerler);
+        }
+
+```
+
+```
+@using STRN_Travel_Trip_Project.Models.Siniflar
+@model List<Blog>
+<div class="con-bot">
+
+    @foreach (var x in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@x.BlogImage" style="width:300px; height:150px;" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@x.Baslik</h4>
+                <span class="doller">@x.Tarih.ToString("dd.MM.yyyy")</span>
+                <p>@x.Aciklama.Substring(0, 80)</p>
+                <p><a href="~/Blog/BlogDetail/@x.Id"><span class="read">Read More</span></a></p>
+            </div>
+        </div>
+    }
+
+    @Html.Action("Partial2", "Default")
+    <div class="clear"></div>
+
+</div>
+```
+
+In this way, when I want to make changes on the main page, I got rid of that code mess.
+
+### Login Controller
+* Since this controller is only for admin, I created a field where I can directly set my username and password via sql and log in that way. I don't have a login or registration page for members.
+
+![header](STRN-Travel-Trip-Project/readmeimages/login.PNG) 
