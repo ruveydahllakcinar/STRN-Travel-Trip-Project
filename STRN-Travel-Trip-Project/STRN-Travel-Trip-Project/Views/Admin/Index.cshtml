@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
 <h2>Blog List</h2>
@@ -19,10 +20,9 @@
     </tr>
     @foreach (var x in Model)
     {
-
-
+        count++;
         <tr>
-            <td>@x.Id</td>
+            <td>@count</td>
             <td>@x.Baslik</td>
             <td><a href="/Admin/DeleteBlog/@x.Id" class="btn btn-danger">Delete</a></td>
             <td><a href="/Admin/BlogGetir/@x.Id" class="btn btn-primary">Update</a></td>

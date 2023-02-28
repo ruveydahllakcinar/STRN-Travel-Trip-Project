@@ -9,10 +9,9 @@
 
 @using (Html.BeginForm("CommentUpdate", "Admin", FormMethod.Post))
 {
-    @Html.LabelFor(x => x.Id)
-    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
     <br />
-    @Html.LabelFor(x => x.KullaniciAdi)
+    <label>Kullanıcı Adı</label>
     @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Mail)

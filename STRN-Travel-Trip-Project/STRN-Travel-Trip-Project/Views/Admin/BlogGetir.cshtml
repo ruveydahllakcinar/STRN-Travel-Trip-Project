@@ -9,19 +9,18 @@
 
 @using (Html.BeginForm("BlogUpdate", "Admin", FormMethod.Post))
 {
-    @Html.LabelFor(x => x.Id)
-    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    @Html.HiddenFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
     <br />
-    @Html.LabelFor(x => x.Baslik)
+    <label>Başlık</label>
     @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Tarih)
+    <label>Tarih</label>
     @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Aciklama)
+    <label>Açıklama</label>
     @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.BlogImage)
+    <label>Blog Image</label>
     @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
     <br />
     <button class="btn btn-primary">UPDATE BLOG</button>

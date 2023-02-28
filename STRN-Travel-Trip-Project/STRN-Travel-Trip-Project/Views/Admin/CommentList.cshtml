@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "CommentList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
 <h2>Comment List</h2>
@@ -19,10 +20,9 @@
     </tr>
     @foreach (var x in Model)
     {
-
-
+        count++;
         <tr>
-            <td>@x.Id</td>
+            <td>@count</td>
             <td>@x.KullaniciAdi</td>
             <td>@x.Mail</td>
             <td>@x.Yorum</td>
