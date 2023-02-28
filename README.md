@@ -63,4 +63,6 @@ Check MySQL as datastore. I created my classes in Model. I submitted this to the
 
 * Yorumları da görebileceğim, denetleyebileceğim, kötü yorum geldiği zaman silebileceğim bir sayfa oluşturdum.
 
-<img src="STRN-Travel-Trip-Project/readmeimages/admin-comment.PNG"  width="1100" height="500">
+
+![header](STRN-Travel-Trip-Project/readmeimages/admin-comment.PNG)
+
