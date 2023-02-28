@@ -59,7 +59,7 @@ Check MySQL as datastore. I created my classes in Model. I submitted this to the
 
 * In my admin panel, there are areas to add, delete, update and see the details of blogs.
 
-![header](STRN-Travel-Trip-Project/readmeimages/admin-blog.gif)
+![header](STRN-Travel-Trip-Project/readmeimages/blog-detail.gif)
 
 * I have created a page where I can see the comments, control them and delete them when bad comments are received.
 
